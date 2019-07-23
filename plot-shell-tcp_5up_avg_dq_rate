@@ -1,0 +1,10 @@
+set terminal postscript eps color font 20 
+set output "tcp_5up_avg_dq_rate.eps"
+set xlabel "Time (s)"
+set ylabel "Avg. Deque Rate (bytes/ms)"
+set xrange[0:100] 
+set yrange[1000000:2000000]
+set grid
+show grid
+set key left top horizontal
+plot "PIE-avg_dq_rate.dat" using 1:2 title 'PIE' with lines lw 2 lc 'blue'

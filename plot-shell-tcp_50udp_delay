@@ -1,0 +1,10 @@
+set terminal postscript eps color font 20 
+set output "tcp_50udp_delay.eps"
+set xlabel "Time (s)"
+set ylabel "Queue Delay (ms)"
+set xrange[0:100] 
+set yrange[0:180]
+set grid
+show grid
+set key left top horizontal
+plot "PIE-delay.dat" using 1:2 title 'PIE' with lines lw 2 lc 'blue'
