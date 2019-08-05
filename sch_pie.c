@@ -282,7 +282,7 @@ static void pie_process_dequeue(struct Qdisc *sch, struct sk_buff *skb)
 			count = count / dtime;
 
 			if (q->vars.avg_dq_rate == 0)
-				q->vars.avg_dq_rate = count;
+				q->vars.avg_dq_rate = (now - q->vars.dq_tstamp)*(QUEUE_THRESHOLD/2^16)*count;
 			else
 				q->vars.avg_dq_rate =
 				    (q->vars.avg_dq_rate -
